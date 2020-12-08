@@ -40,18 +40,21 @@ function performAction(e) {
         console.log(newDateYear)
         const img = document.createElement('img');
         img.setAttribute('id', img);
-
+        // Weatherbit_API
+        // compare between the Date entered by the user and Date 
         if ((expDateYear == newDateYear) && (expDateMonth == newDateMonth)){
 
-          /////////
+          
           const location = document.getElementById('city').value; 
+          //Pixabay API
           const PixabayURL='https://pixabay.com/api/?key=19374862-2ac0a29a5c9de2a63e36d3af1&q='
           const pixabayapi='&image_type=photo&pretty=true'
 
-          ////////
+          
           //console.log("same year and month");
           const sameWeek = newDateDate+6
           console.log("newDateDate "+sameWeek)
+        // If the trip is within a week,  get the current weather forecast
           if ((expDateDay <= sameWeek) && (expDateDay >= newDateDate)){
             console.log("Same day and month and year")
             //const temp = document.querySelector(".temperature")
@@ -72,6 +75,7 @@ function performAction(e) {
 
            })
           } else if (expDateDay > sameWeek) {
+            //If the trip is in the future , get a predicted forecast
             console.log("Same month and year but after 7 days");
             //img.parentNode.removeChild(img);
             const lng= data.geonames[0].lng;
@@ -93,6 +97,7 @@ function performAction(e) {
             document.querySelector(".temperature").innerHTML = "";
             document.querySelector(".description").innerHTML = "Same month and year but before today";
           }
+          //Pixabay API
           fetch(PixabayURL+location+pixabayapi)
           .then(response => response.json())
           //.then(data => console.log(data.hits[0].largeImageURL));
@@ -108,38 +113,7 @@ function performAction(e) {
           document.querySelector(".description").innerHTML = "defrent year and month";
         }
       
-        
-
-
-
-
-
-        //Weatherbit 
-        //Current Weather API
-
-
-      //   const lng= data.geonames[0].lng;
-      //   const lat=data.geonames[0].lat;
-      //   const country=data.geonames[0].countryName;
-      //   const apiweather='https://api.weatherbit.io/v2.0/current?lat='
-      //   const and='&lon='
-      //   const apiKeyweather='&key=91570401933243b7876af1b59ef978b4'
-      //   fetch(apiweather+lat+and+lng+apiKeyweather)
-      //  .then(response => response.json())
-      //  .then(data => console.log( 'temperature:  '+data.data[0].temp,'description :'+data.data[0].weather.description));
-
-
-        //Weatherbit 
-        //Weather Forecast API
-      //   const lng= data.geonames[0].lng;
-      //   const lat=data.geonames[0].lat;
-      //   const country=data.geonames[0].countryName;
-      //   const apiweather='https://api.weatherbit.io/v2.0/forecast/daily?lat='
-      //   const and='&lon='
-      //   const apiKeyweather='&key=91570401933243b7876af1b59ef978b4'
-      //   fetch(apiweather+lat+and+lng+apiKeyweather)
-      //  .then(response => response.json())
-      //  .then(data => console.log('washington:  '+data.data[0].weather.description));
+     
 
       });
   };
@@ -182,21 +156,3 @@ function performAction(e) {
  
   export { performAction }
 
-
-
-
-
-
-
-
-  
-  //Pixabay API
-  // document.getElementById('button').addEventListener('click',Pixabay);
-  // function Pixabay(e) {
-  // const location = document.getElementById('city').value; 
-  // const PixabayURL='https://pixabay.com/api/?key=19374862-2ac0a29a5c9de2a63e36d3af1&q='
-  // const pixabayapi='&image_type=photo&pretty=true'
-
-  //  fetch(PixabayURL+location+pixabayapi)
-  // .then(response => response.json())
-  // .then(data => console.log(data.hits[0].largeImageURL));}

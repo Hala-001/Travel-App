@@ -1,7 +1,8 @@
 var path = require('path')
+// Require Express to run server and routes
 const express = require('express')
 const mockAPIResponse = require('./mockAPI.js')
-
+// Start up an instance of app
 const app = express()
 /* Middleware*/
 //Here we are configuring express to use body-parser as middle-ware.
@@ -22,6 +23,7 @@ app.get('/', function (req, res) {
 })
 
 // designates what port the app will listen to for incoming requests
+// Setup Server 
 app.listen(8000, function () {
     console.log('Example app listening on port 8000!')
 })
