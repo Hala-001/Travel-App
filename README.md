@@ -38,4 +38,3 @@ test for the express server and application javascript
 ### Step 6: HTML :
 - `index.html` HTML structure indented properly with classes and ID’s that make sense.
 - enter the location you are traveling to and the date you are leaving
-### Step 7: Comments :
