@@ -1,0 +1,118 @@
+.title {
+    color: #bda79c;
+    font-family: "Sofia";
+    font-size: 50px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  html {
+    background: #efe5dc;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .location {
+    color: #bda79c;
+    font-family: "Sofia";
+    font-size: 30px;
+  }
+  
+  .date {
+    color: #bda79c;
+    font-family: "Sofia";
+    font-size: 30px;
+  }
+  
+  #city {
+    width: 500px;
+    height: 20px;
+    background: #eed8c7;
+    border-radius: 10px;
+  }
+  #city:active{
+      background-color: #FFFFFC;
+      font-size: 100%;
+  }
+  .Departing {
+    width: 500px;
+    height: 20px;
+    background: #eed8c7;
+    border-radius: 10px;
+  }
+  .Departing:active{
+      background-color: #FFFFFC;
+      font-size: 100%;}
+  button {
+    background-color: white;
+    color: black;
+    border: 2px solid #bda79c;
+    border-radius: 10px;
+    font-size: 20px;
+    color: #bda79c;
+    font-family: "Sofia";
+  }
+  
+  button:active {
+      color: #E76F51;
+      font-size: 100%;
+  }
+  button:hover{
+      background-color: #ecccc2;
+  }
+  
+  .Weather{ color: #bda79c;
+    font-family: "Sofia";
+    font-size: 30px;
+  display: flex;
+  justify-content: center;
+  border-left: 6px solid #bda79c;
+  background-color: lightgrey;}
+  
+  
+  
+  .temperature{color: #bda79c;
+    font-family: "Sofia";
+    font-size: 20px;
+    display: flex;
+    justify-content: center;}
+  
+    .description{color: #bda79c;
+      font-family: "Sofia";
+      font-size: 20px;
+    display: flex;
+  justify-content: center;}
+  
+  img{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+  }
+  
+  @media only screen and (max-width: 600px) {
+    #city {
+      width: 300px;
+      height: 20px;
+  
+      border-radius: 10px;
+    }
+    .Departing {
+      width: 300px;
+      height: 20px;
+  
+      border-radius: 10px;
+    }
+  }
+  
+  @media (min-width: 600px) and (max-width: 900px) {
+    #city {
+      width: 400px;
+      height: 20px;
+      border-radius: 10px;
+    }
+    .Departing {
+      width: 400px;
+      height: 20px;
+      border-radius: 10px;
+    }
+  }
