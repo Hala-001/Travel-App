@@ -1,4 +1,5 @@
 // GeoNames_API
+try {
 const baseURL = 'http://api.geonames.org/searchJSON?q='
 const apiKey = '&maxRows=10&username=halaahmad';
 // GET Request.
@@ -88,7 +89,7 @@ function performAction(e) {
             .then(response => response.json())
             //.then(data => console.log('washington:  '+data.data[0].weather.description))
             .then(function(response){
-              document.querySelector(".temperature").innerHTML = "";
+              document.querySelector(".temperature").innerHTML = "low temp: "+ response.data[1].low_temp +" max temp: "+response.data[1].max_temp;
               document.querySelector(".description").innerHTML = response.data[0].weather.description;
             })
           } else {
@@ -153,6 +154,10 @@ function performAction(e) {
     }
   }
   
+
+} catch (error) {
+  console.log("error", error);
+}
  
-  export { performAction }
+  // export { performAction }
 
