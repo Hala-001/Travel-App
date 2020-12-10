@@ -142,3 +142,37 @@
       border-radius: 10px;
     }
   }
+  @media only screen 
+    and (device-width : 375px) 
+    and (device-height : 812px) 
+    and (-webkit-device-pixel-ratio : 3) {
+      html {
+    background:  #efe5dc;
+    display: flex;
+    align-self: center
+     }
+     #city {
+      width: 400px;
+      height: 50px;
+  
+      border-radius: 10px;
+      display: flex;
+      align-content: center;
+    }
+    .Departing {
+      width: 400px;
+      height: 50px;
+  
+      border-radius: 10px;
+    }
+    .location { font-size: 50px;}
+    .date {font-size: 50px;}
+    button {
+     
+      font-size: 25px;
+    
+    }
+    .Weather{
+      font-size: 35px;
+   }
+     }
