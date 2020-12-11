@@ -1,7 +1,7 @@
 var path = require('path')
 // Require Express to run server and routes
 const express = require('express')
-const mockAPIResponse = require('./mockAPI.js')
+
 // Start up an instance of app
 const app = express()
 /* Middleware*/

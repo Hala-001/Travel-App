@@ -10,15 +10,10 @@ function performAction(e) {
     getWeather(baseURL, location, apiKey)
   
       .then(function (data) {
-        // console.log(data)
-        // console.log(data.geonames)
-        // console.log(data.geonames[0])
-        // console.log(data.geonames[0].lng)
-        // console.log("lat= "+data.geonames[0].lat)
-        // console.log("countryName= "+data.geonames[0].countryName)
+        
         postData('/sendData', { lng: data.geonames[0].lng, lat: data.geonames[0].lat, countryName: data.geonames[0].countryName})
         
-        //return The date it was entered by the user
+       
         const expDate = new Date(document.getElementById('start').value);
         const expDateDay=expDate.getDate();
         const expDateMonth=expDate.getMonth();
@@ -28,10 +23,7 @@ function performAction(e) {
         console.log(expDateMonth)
         console.log(expDateYear)
 
-        //return The date 
-        // const tempDate = new Date();
-        // const newDate = new Date(tempDate.getFullYear(), tempDate.getMonth(), tempDate.getDate());
-        // console.log(tempDate)
+        
         const newDateDate=new Date().getDate();
         const newDateMonth=new Date().getMonth();
         const newDateYear=new Date().getFullYear();
@@ -42,7 +34,7 @@ function performAction(e) {
         const img = document.createElement('img');
         img.setAttribute('id', img);
         // Weatherbit_API
-        // compare between the Date entered by the user and Date 
+        
         if ((expDateYear == newDateYear) && (expDateMonth == newDateMonth)){
 
           
@@ -58,8 +50,7 @@ function performAction(e) {
         // If the trip is within a week,  get the current weather forecast
           if ((expDateDay <= sameWeek) && (expDateDay >= newDateDate)){
             console.log("Same day and month and year")
-            //const temp = document.querySelector(".temperature")
-            //img.parentNode.removeChild(img);
+           
             const lng= data.geonames[0].lng;
             const lat=data.geonames[0].lat;
             const country=data.geonames[0].countryName;
@@ -68,7 +59,7 @@ function performAction(e) {
             const apiKeyweather='&key=91570401933243b7876af1b59ef978b4'
             fetch(apiweather+lat+and+lng+apiKeyweather)
            .then(response => response.json())
-           //.then(data => console.log( 'temperature:  '+data.data[0].temp,'description :'+data.data[0].weather.description))
+           
            .then(function(response){             
             document.querySelector(".temperature").innerHTML = response.data[0].temp;
             document.querySelector(".description").innerHTML = response.data[0].weather.description;
@@ -76,9 +67,9 @@ function performAction(e) {
 
            })
           } else if (expDateDay > sameWeek) {
-            //If the trip is in the future , get a predicted forecast
+            //If the trip in the future , get a predicted forecast
             console.log("Same month and year but after 7 days");
-            //img.parentNode.removeChild(img);
+            
             const lng= data.geonames[0].lng;
             const lat=data.geonames[0].lat;
             const country=data.geonames[0].countryName;
@@ -87,21 +78,20 @@ function performAction(e) {
             const apiKeyweather='&key=91570401933243b7876af1b59ef978b4'
             fetch(apiweather+lat+and+lng+apiKeyweather)
             .then(response => response.json())
-            //.then(data => console.log('washington:  '+data.data[0].weather.description))
+           
             .then(function(response){
               document.querySelector(".temperature").innerHTML = "low temp: "+ response.data[1].low_temp +" max temp: "+response.data[1].max_temp;
               document.querySelector(".description").innerHTML = response.data[0].weather.description;
             })
           } else {
             console.log("Same month and year but before today")
-            //img.parentNode.removeChild(img);
+
             document.querySelector(".temperature").innerHTML = "";
             document.querySelector(".description").innerHTML = "Same month and year but before today";
           }
           //Pixabay API
           fetch(PixabayURL+location+pixabayapi)
           .then(response => response.json())
-          //.then(data => console.log(data.hits[0].largeImageURL));
           .then(function(response){
 
             
@@ -121,15 +111,14 @@ function performAction(e) {
   const getWeather = async (url) => {
     const location = document.getElementById('city').value;
     const res = await fetch(baseURL + location + apiKey)
-    //const res = await fetch(url)
+    
     try {
       const data = await res.json();
-      //console.log(data)
-      //console.log(data.main['temp'])
+      
       return data;
     } catch (error) {
       console.log("error", error);
-      // appropriately handle the error
+     
     }
   }
 
