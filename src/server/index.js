@@ -56,3 +56,4 @@ function info(req, res) {
     projectData.data.push(newData);
     console.log(projectData)
 }
+module.exports = app
